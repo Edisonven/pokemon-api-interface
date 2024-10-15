@@ -13,7 +13,7 @@ export default function Pagination({
 }) {
   // Calcula el total de páginas en función del número total de elementos y el límite por página
   const totalPages = Math.ceil(totalCount / limit);
-  const [visiblePages, setVisiblePages] = useState(10);
+  const [visiblePages, setVisiblePages] = useState(3);
 
   useEffect(() => {
     // Define cuántas páginas se mostrarán en la paginación basado en el ancho de la ventana
