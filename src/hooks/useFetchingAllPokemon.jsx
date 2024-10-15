@@ -3,10 +3,11 @@ import { PokemonContext } from "@/context/PokemonContext";
 const { useEffect, useContext } = require("react");
 
 const useFetchingAllPokemon = (startSearch) => {
-  const { setPokemonFinded } = useContext(PokemonContext);
+  const { setPokemonFinded, setError } = useContext(PokemonContext);
 
   useEffect(() => {
     const handleFetchingAllPokemon = async () => {
+      setError("");
       if (startSearch) {
         try {
           const response = await fetch(
@@ -24,6 +25,7 @@ const useFetchingAllPokemon = (startSearch) => {
           return data;
         } catch (error) {
           console.error(error.message);
+          setError("No pudimos encontrar tu pokemon, intenta nuevamente");
         }
       }
     };

@@ -6,9 +6,12 @@ export const PokemonContext = createContext();
 
 const PokemonProvider = ({ children }) => {
   const [pokemonFinded, setPokemonFinded] = useState([]);
+  const [error, setError] = useState("");
 
   return (
-    <PokemonContext.Provider value={{ pokemonFinded, setPokemonFinded }}>
+    <PokemonContext.Provider
+      value={{ pokemonFinded, setPokemonFinded, error, setError }}
+    >
       {children}
     </PokemonContext.Provider>
   );
