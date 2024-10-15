@@ -25,10 +25,10 @@ export default function Pokemons() {
             <div className="flex items-center justify-center flex-wrap gap-5">
               {pokemonFinded.length > 0
                 ? pokemonFinded.map((pokemon) => (
-                    <PokemonHomeCard pokemon={pokemon} />
+                    <PokemonHomeCard key={pokemon.id} pokemon={pokemon} />
                   ))
                 : pokemons.map((pokemon) => (
-                    <PokemonHomeCard pokemon={pokemon} />
+                    <PokemonHomeCard key={pokemon.id} pokemon={pokemon} />
                   ))}
             </div>
           )}
