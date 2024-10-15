@@ -17,8 +17,8 @@ export default function PokemonHomeCard({ pokemon }) {
           alt="pokemon logo"
         />
       </div>
-      <div className="">
-        <h1 className="text-slate-800 text-center font-medium text-lg">
+      <div className="overflow-hidden">
+        <h1 className="text-slate-800 text-center font-medium text-lg max-w-[110px] text-ellipsis whitespace-nowrap overflow-hidden">
           {pokemon?.name?.charAt(0).toUpperCase() + pokemon?.name?.slice(1)}
         </h1>
         <div className="h-[80%] flex flex-col justify-between">
