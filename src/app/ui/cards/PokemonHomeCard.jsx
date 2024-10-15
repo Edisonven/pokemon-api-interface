@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function PokemonHomeCard({ pokemon }) {
   return (
     <div
-      className="rounded shadow-md p-3 flex w-[300px] justify-between bg-white"
+      className="rounded shadow-md p-3 flex sm:w-[300px] justify-between bg-white"
       key={pokemon.id}
     >
       <div>

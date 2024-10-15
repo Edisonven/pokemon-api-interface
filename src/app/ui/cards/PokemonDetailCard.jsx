@@ -4,7 +4,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 
 export default function PokemonDetailCard({ pokemonDetail }) {
   return (
-    <div className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 w-[400px] bg-white">
+    <div className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[400px] bg-white">
       <Link href="/" className="">
         <IoIosArrowRoundBack className="text-slate-800 text-[40px] hover:bg-[#00000013] rounded-lg" />
       </Link>

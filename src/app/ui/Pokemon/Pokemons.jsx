@@ -17,7 +17,7 @@ export default function Pokemons() {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <div>
+        <div className="flex flex-col items-center">
           <SearchBar />
           {error ? (
             <p>{error}</p>

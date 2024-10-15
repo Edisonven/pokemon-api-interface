@@ -29,7 +29,7 @@ export default function SearchBar() {
   }, [inputValue]);
 
   return (
-    <section className="my-3 ml-auto w-max mr-[100px]">
+    <section className="my-3 md:ml-auto w-max md:mr-[100px]">
       <div className="flex items-center gap-3">
         <div className="relative">
           <input

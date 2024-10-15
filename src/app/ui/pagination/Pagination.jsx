@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
@@ -12,9 +13,29 @@ export default function Pagination({
 }) {
   // Calcula el total de páginas en función del número total de elementos y el límite por página
   const totalPages = Math.ceil(totalCount / limit);
+  const [visiblePages, setVisiblePages] = useState(10);
 
-  // Define cuántas páginas se mostrarán en la paginación
-  const visiblePages = 10;
+  useEffect(() => {
+    // Define cuántas páginas se mostrarán en la paginación basado en el ancho de la ventana
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setVisiblePages(3);
+      } else {
+        setVisiblePages(10);
+      }
+    };
+
+    // Llamar la función de resize al montar el componente
+    handleResize();
+
+    // Agregar listener para cambios en el tamaño de la ventana
+    window.addEventListener("resize", handleResize);
+
+    // Limpiar el listener al desmontar el componente
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Calcula la página de inicio visible, asegurándose de que no sea menor que 1
   const startPage = Math.max(1, page - Math.floor(visiblePages / 2));
@@ -57,7 +78,7 @@ export default function Pagination({
   };
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-1 sm:gap-3">
       <button
         onClick={handleFirstPage}
         className={`${
