@@ -9,7 +9,6 @@ export default function Pokemons() {
   //desestructuración de los elementos definidos en el customHook del manejo de la llamada a la api
   const { pokemons, limit, setOffSet, totalCount, page, setPage, loading } =
     useFetchingPokemonData();
-  console.log(loading);
 
   return (
     <section className="max-w-[1400px]">
