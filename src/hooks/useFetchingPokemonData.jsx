@@ -37,13 +37,16 @@ const useFetchingPokemonData = () => {
     };
 
     handleFetchPokemonData();
-  }, []);
+  }, [offSet, limit]);
 
   return {
-    limit,
     pokemons,
+    limit,
     setOffSet,
     totalCount,
+    setLimit,
+    page,
+    setPage,
   };
 };
 

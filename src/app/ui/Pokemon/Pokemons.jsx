@@ -4,7 +4,8 @@ import Image from "next/image";
 import Pagination from "../pagination/Pagination";
 
 export default function Pokemons() {
-  const { pokemons } = useFetchingPokemonData();
+  const { pokemons, limit, setOffSet, totalCount, page, setPage } =
+    useFetchingPokemonData();
 
   console.log(pokemons);
 
@@ -43,8 +44,14 @@ export default function Pokemons() {
           </div>
         ))}
       </div>
-      <div className="">
-        <Pagination />
+      <div className="flex justify-center my-5">
+        <Pagination
+          limit={limit}
+          setOffSet={setOffSet}
+          totalCount={totalCount}
+          page={page}
+          setPage={setPage}
+        />
       </div>
     </section>
   );
