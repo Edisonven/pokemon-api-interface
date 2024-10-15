@@ -61,7 +61,7 @@ export default function Pagination({
       <button
         onClick={handleFirstPage}
         className={`${
-          page === totalPages ? "disabled" : ""
+          page === 1 ? "hidden" : ""
         } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 text-[20px]`}
       >
         <MdKeyboardDoubleArrowLeft />
@@ -99,7 +99,7 @@ export default function Pagination({
       <button
         onClick={handleNext}
         className={`${
-          page === totalPages ? "disabled" : ""
+          page === totalPages ? "hidden" : ""
         } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
       >
         Siguiente
@@ -108,7 +108,7 @@ export default function Pagination({
       <button
         onClick={handleLastPage} // Agregado para ir a la última página
         className={`${
-          page === totalPages ? "disabled" : ""
+          page === totalPages ? "hidden" : ""
         } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 text-[20px]`}
       >
         <MdKeyboardDoubleArrowRight />
