@@ -1,14 +1,16 @@
 import { PokemonContext } from "@/context/PokemonContext";
 
-const { useEffect, useContext } = require("react");
+const { useEffect, useContext, useState } = require("react");
 
 const useFetchingAllPokemon = (startSearch) => {
   const { setPokemonFinded, setError } = useContext(PokemonContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleFetchingAllPokemon = async () => {
-      setError("");
       if (startSearch) {
+        setLoading(true);
+        setError("");
         try {
           const response = await fetch(
             `https://pokeapi.co/api/v2/pokemon/${startSearch.toLowerCase()}`
@@ -26,12 +28,18 @@ const useFetchingAllPokemon = (startSearch) => {
         } catch (error) {
           console.error(error.message);
           setError("No pudimos encontrar tu pokemon, intenta nuevamente");
+        } finally {
+          setLoading(false);
         }
       }
     };
 
     handleFetchingAllPokemon();
   }, [startSearch]);
+
+  return {
+    loading,
+  };
 };
 
 export default useFetchingAllPokemon;

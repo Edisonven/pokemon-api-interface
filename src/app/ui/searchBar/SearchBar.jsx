@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
   const [startSearch, setStartSearch] = useState("");
-  useFetchingAllPokemon(startSearch);
+  const { loading } = useFetchingAllPokemon(startSearch);
   const { setPokemonFinded } = useContext(PokemonContext);
 
   const handleChange = (e) => {
@@ -52,7 +52,7 @@ export default function SearchBar() {
             onClick={handleSerachPokemon}
             className="text-gray-100 bg-red-500 py-1 px-2 rounded shadow font-semibold"
           >
-            Buscar
+            {loading ? "Buscando..." : "Buscar"}
           </button>
         </div>
       </div>
