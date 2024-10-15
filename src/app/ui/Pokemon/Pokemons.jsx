@@ -9,8 +9,6 @@ export default function Pokemons() {
   const { pokemons, limit, setOffSet, totalCount, page, setPage } =
     useFetchingPokemonData();
 
-  console.log(pokemons);
-
   return (
     <section className="max-w-[1400px]">
       <div className="flex items-center justify-center flex-wrap gap-3">

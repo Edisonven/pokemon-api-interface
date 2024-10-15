@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 const useFetchPokemonDetail = (id) => {
   const [pokemonDetail, setPokemonDetail] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleFetchPokemonDetail = async () => {
+      setLoading(true);
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
@@ -19,6 +21,8 @@ const useFetchPokemonDetail = (id) => {
         return data;
       } catch (error) {
         console.error(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -27,6 +31,7 @@ const useFetchPokemonDetail = (id) => {
 
   return {
     pokemonDetail,
+    loading,
   };
 };
 
