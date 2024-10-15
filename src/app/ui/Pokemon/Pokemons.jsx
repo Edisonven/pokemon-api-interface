@@ -4,6 +4,7 @@ import Image from "next/image";
 import Pagination from "../pagination/Pagination";
 
 export default function Pokemons() {
+  //desestructuración de los elementos definidos en el customHook del manejo de la llamada a la api
   const { pokemons, limit, setOffSet, totalCount, page, setPage } =
     useFetchingPokemonData();
 
@@ -45,6 +46,7 @@ export default function Pokemons() {
         ))}
       </div>
       <div className="flex justify-center my-5">
+        {/*Componente funcional que maneja la paginación, recibe las props necesarias para ejecutar la lógica*/}
         <Pagination
           limit={limit}
           setOffSet={setOffSet}
