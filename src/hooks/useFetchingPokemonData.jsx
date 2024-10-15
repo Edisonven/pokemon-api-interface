@@ -8,11 +8,13 @@ const useFetchingPokemonData = () => {
   const [offSet, setOffSet] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   // hook de efecto secundario que se vuelve a ejecutar cada vez que cambia alguna de suss dependencias
   useEffect(() => {
     //función que realiza la operación asíncrona para traer los datos de la api
     const handleFetchPokemonData = async () => {
+      setLoading(true);
       //implementamos try catch para capturar cualquier error que poueda ocurrir en la operación asíncrona
       try {
         //constante que almacena la respuesta (promesa) al endpoint de la api
@@ -45,6 +47,8 @@ const useFetchingPokemonData = () => {
       } catch (error) {
         //capturamos cualquier error que pueda ocurrir en el proceso
         console.error(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -61,6 +65,7 @@ const useFetchingPokemonData = () => {
     setLimit,
     page,
     setPage,
+    loading,
   };
 };
 
