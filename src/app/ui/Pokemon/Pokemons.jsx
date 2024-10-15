@@ -45,12 +45,12 @@ export default function Pokemons() {
                           alt="pokemon logo"
                         />
                       </div>
-                      <div className="h-full">
+                      <div className="">
                         <h1 className="text-slate-800 text-center font-medium text-lg">
                           {pokemon.name.charAt(0).toUpperCase() +
                             pokemon.name.slice(1)}
                         </h1>
-                        <div>
+                        <div className="h-[80%] flex flex-col justify-between">
                           {pokemon.types.map((type, index) => (
                             <p className="text-slate-800" key={index}>
                               {type.type.name}
@@ -86,17 +86,19 @@ export default function Pokemons() {
                           alt="pokemon logo"
                         />
                       </div>
-                      <div className="h-full">
+                      <div className="">
                         <h1 className="text-slate-800 text-center font-medium text-lg">
                           {pokemon.name.charAt(0).toUpperCase() +
                             pokemon.name.slice(1)}
                         </h1>
-                        <div>
-                          {pokemon.types.map((type, index) => (
-                            <p className="text-slate-800" key={index}>
-                              {type.type.name}
-                            </p>
-                          ))}
+                        <div className="h-[80%] flex flex-col justify-between">
+                          <div>
+                            {pokemon.types.map((type, index) => (
+                              <p className="text-slate-800" key={index}>
+                                {type.type.name}
+                              </p>
+                            ))}
+                          </div>
                           <Link
                             className="px-2 py-1 bg-red-500 rounded shadow text-gray-100 font-medium hover:bg-red-400"
                             href={`/${pokemon.id}`}

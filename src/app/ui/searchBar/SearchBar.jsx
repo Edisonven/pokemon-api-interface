@@ -33,6 +33,7 @@ export default function SearchBar() {
       <div className="flex items-center gap-3">
         <div className="relative">
           <input
+            autoFocus
             value={inputValue}
             onChange={handleChange}
             type="text"
@@ -51,7 +52,7 @@ export default function SearchBar() {
         <div>
           <button
             onClick={handleSerachPokemon}
-            className="text-gray-100 bg-red-500 py-1 px-2 rounded shadow font-semibold"
+            className="text-gray-100 bg-red-500 py-1 px-2 rounded shadow font-semibold hover:bg-red-400"
           >
             {loading ? "Buscando..." : "Buscar"}
           </button>

@@ -8,8 +8,6 @@ const PokemonDetail = ({ params }) => {
   const { id } = params;
   const { pokemonDetail, loading } = useFetchPokemonDetail(id);
 
-  console.log(pokemonDetail);
-
   return (
     <section className="">
       {loading ? (
