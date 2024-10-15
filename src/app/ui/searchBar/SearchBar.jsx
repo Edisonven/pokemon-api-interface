@@ -7,7 +7,7 @@ export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
   const [startSearch, setStartSearch] = useState("");
   const { loading } = useFetchingAllPokemon(startSearch);
-  const { setPokemonFinded } = useContext(PokemonContext);
+  const { setPokemonFinded, setError } = useContext(PokemonContext);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -24,6 +24,7 @@ export default function SearchBar() {
     if (inputValue === "") {
       setStartSearch("");
       setPokemonFinded([]);
+      setError("");
     }
   }, [inputValue]);
 
