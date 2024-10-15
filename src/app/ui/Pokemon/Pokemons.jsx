@@ -2,6 +2,7 @@
 import useFetchingPokemonData from "@/hooks/useFetchingPokemonData";
 import Image from "next/image";
 import Pagination from "../pagination/Pagination";
+import Link from "next/link";
 
 export default function Pokemons() {
   //desestructuración de los elementos definidos en el customHook del manejo de la llamada a la api
@@ -30,16 +31,22 @@ export default function Pokemons() {
                 alt="pokemon logo"
               />
             </div>
-            <div>
+            <div className="h-full">
               <h1 className="text-gray-300 text-center font-medium text-lg">
                 {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
               </h1>
-              <div>
+              <div className="">
                 {pokemon.types.map((type, index) => (
                   <p className="text-gray-300" key={index}>
                     {type.type.name}
                   </p>
                 ))}
+                <Link
+                  className="px-2 py-1 bg-red-500 rounded shadow text-gray-300 font-medium hover:bg-red-400"
+                  href={`/${pokemon.id}`}
+                >
+                  Ver detalles
+                </Link>
               </div>
             </div>
           </div>
