@@ -7,7 +7,7 @@ export default function SearchBar() {
         <input
           type="text"
           placeholder="Busca tu pokemon..."
-          className="outline-none py-1 px-3 rounded-3xl shadow pr-8 w-[400px] h-[40px]"
+          className="outline-none py-1 px-3 rounded-3xl shadow pr-8 w-[280px] md:w-[400px] h-[40px]"
           maxLength={40}
         />
         <Image
