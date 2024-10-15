@@ -16,6 +16,7 @@ export default function Pokemons() {
             key={pokemon.id}
           >
             <div className="">
+              <p className="text-gray-300 font-semibold"># {pokemon.id}</p>
               <Image
                 width={100}
                 height={100}
