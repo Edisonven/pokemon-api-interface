@@ -1,6 +1,7 @@
 "use client";
 import useFetchingPokemonData from "@/hooks/useFetchingPokemonData";
 import Image from "next/image";
+import Pagination from "../pagination/Pagination";
 
 export default function Pokemons() {
   const { pokemons } = useFetchingPokemonData();
@@ -41,6 +42,9 @@ export default function Pokemons() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="">
+        <Pagination />
       </div>
     </section>
   );

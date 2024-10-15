@@ -4,6 +4,8 @@ const useFetchingPokemonData = () => {
   const [pokemons, setPokemons] = useState([]);
   const [limit, setLimit] = useState(20);
   const [offSet, setOffSet] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const handleFetchPokemonData = async () => {
@@ -18,6 +20,7 @@ const useFetchingPokemonData = () => {
         }
 
         const data = await response.json();
+        setTotalCount(data.count);
 
         const promises = data.results.map(async (pokemon) => {
           const response = await fetch(pokemon.url);
@@ -40,6 +43,7 @@ const useFetchingPokemonData = () => {
     limit,
     pokemons,
     setOffSet,
+    totalCount,
   };
 };
 
