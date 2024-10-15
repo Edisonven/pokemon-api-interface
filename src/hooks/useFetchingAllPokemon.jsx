@@ -1,37 +1,35 @@
-const { useEffect, useState } = require("react");
+import { PokemonContext } from "@/context/PokemonContext";
 
-const useFetchingAllPokemon = () => {
-  const [allPokemon, setAllPokemons] = useState([]);
-  const [filteredPokemons, setFilteredPokemons] = useState([]);
+const { useEffect, useContext } = require("react");
+
+const useFetchingAllPokemon = (startSearch) => {
+  const { setPokemonFinded } = useContext(PokemonContext);
 
   useEffect(() => {
     const handleFetchingAllPokemon = async () => {
-      try {
-        const response = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
-        );
-        if (!response.ok) {
-          const errorData = await response.json();
+      if (startSearch) {
+        try {
+          const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${startSearch.toLowerCase()}`
+          );
+          if (!response.ok) {
+            const errorData = await response.json();
 
-          throw new Error(errorData.mewssage);
+            throw new Error(errorData.mewssage);
+          }
+
+          const data = await response.json();
+
+          setPokemonFinded([data]);
+          return data;
+        } catch (error) {
+          console.error(error.message);
         }
-
-        const data = await response.json();
-        setAllPokemons(data.results);
-        return data;
-      } catch (error) {
-        console.error(error.message);
       }
     };
 
     handleFetchingAllPokemon();
-  }, []);
-
-  return {
-    allPokemon,
-    filteredPokemons,
-    setFilteredPokemons,
-  };
+  }, [startSearch]);
 };
 
 export default useFetchingAllPokemon;
