@@ -10,7 +10,6 @@ const useFetchingAllPokemon = (startSearch) => {
     const handleFetchingAllPokemon = async () => {
       if (startSearch) {
         setLoading(true);
-        setError("");
         try {
           const response = await fetch(
             `https://pokeapi.co/api/v2/pokemon/${startSearch.toLowerCase()}`
@@ -22,7 +21,7 @@ const useFetchingAllPokemon = (startSearch) => {
           }
 
           const data = await response.json();
-
+          setError("");
           setPokemonFinded([data]);
           return data;
         } catch (error) {

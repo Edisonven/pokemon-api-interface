@@ -111,7 +111,11 @@ export default function Pokemons() {
           )}
         </div>
       )}
-      <div className="flex justify-center my-5">
+      <div
+        className={`flex justify-center my-5 ${
+          error ? "hidden" : pokemonFinded.length > 0 ? "hidden" : ""
+        }`}
+      >
         {/*Componente funcional que maneja la paginación, recibe las props necesarias para ejecutar la lógica*/}
         <Pagination
           limit={limit}
