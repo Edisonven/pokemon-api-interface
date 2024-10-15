@@ -1,5 +1,7 @@
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
 export default function Pagination({
   limit, // Límite de elementos por página
@@ -23,7 +25,6 @@ export default function Pagination({
   // Función que maneja la acción de ir a la siguiente página
   const handleNext = () => {
     if (page < totalPages) {
-      // Verifica si la página actual es menor que el total de páginas
       const newPage = page + 1; // Incrementa la página
       setPage(newPage); // Actualiza la página
       setOffSet((newPage - 1) * limit); // Calcula y establece el nuevo offset
@@ -33,20 +34,43 @@ export default function Pagination({
   // Función que maneja la acción de ir a la página anterior
   const handlePrev = () => {
     if (page > 1) {
-      // Verifica si la página actual es mayor que 1
-      const newPage = page - 1; // Decrementa la página
-      setPage(newPage); // Actualiza la página
-      setOffSet((newPage - 1) * limit); // Calcula y establece el nuevo offset
+      const newPage = page - 1;
+      setPage(newPage);
+      setOffSet((newPage - 1) * limit);
+    }
+  };
+
+  // Función que maneja la acción de ir a la última página
+  const handleLastPage = () => {
+    if (page < totalPages) {
+      setPage(totalPages);
+      setOffSet((totalPages - 1) * limit);
+    }
+  };
+
+  // Función que maneja la acción de volver a la primera página
+  const handleFirstPage = () => {
+    if (page > 1) {
+      setPage(1);
+      setOffSet(0);
     }
   };
 
   return (
     <div className="flex items-center gap-3">
       <button
+        onClick={handleFirstPage}
+        className={`${
+          page === totalPages ? "disabled" : ""
+        } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 text-[20px]`}
+      >
+        <MdKeyboardDoubleArrowLeft />
+      </button>
+      <button
         onClick={handlePrev}
         className={`${
           page === 1 ? "hidden" : ""
-        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
+        } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
       >
         <IoIosArrowBack />
         Anterior
@@ -65,7 +89,7 @@ export default function Pagination({
               setOffSet((pageIndex - 1) * limit);
             }}
           >
-            <div className="page-link text-slate-800 font-mediu">
+            <div className="page-link text-slate-800 font-medium">
               {pageIndex}
             </div>
           </div>
@@ -76,10 +100,18 @@ export default function Pagination({
         onClick={handleNext}
         className={`${
           page === totalPages ? "disabled" : ""
-        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
+        } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
       >
         Siguiente
         <IoIosArrowForward />
+      </button>
+      <button
+        onClick={handleLastPage} // Agregado para ir a la última página
+        className={`${
+          page === totalPages ? "disabled" : ""
+        } flex items-center hover:bg-slate-300 py-1 px-2 rounded transition duration-300 select-none text-slate-800 text-[20px]`}
+      >
+        <MdKeyboardDoubleArrowRight />
       </button>
     </div>
   );

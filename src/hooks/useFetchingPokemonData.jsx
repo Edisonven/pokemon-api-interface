@@ -54,7 +54,7 @@ const useFetchingPokemonData = () => {
 
     handleFetchPokemonData();
     //arreglo de dependencias para volver a ejecutar el efecto secundario
-  }, [offSet, limit]);
+  }, [offSet, limit, page]);
 
   //objeto que contiene los estados con el manejo de cada uno de ellos
   return {
