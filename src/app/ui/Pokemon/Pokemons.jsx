@@ -7,7 +7,13 @@ export default function Pokemons() {
 
   return (
     <section>
-      <h1>Pokemons</h1>
+      <div>
+        {pokemons.map((pokemon) => (
+          <div key={pokemon.id}>
+            <h1 className="text-gray-300">{pokemon.name}</h1>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
