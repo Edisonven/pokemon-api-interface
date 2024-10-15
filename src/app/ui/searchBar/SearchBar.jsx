@@ -1,13 +1,22 @@
+import useFetchingAllPokemon from "@/hooks/useFetchingAllPokemon";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
+  const { allPokemon, setFilteredPokemons } = useFetchingAllPokemon();
 
   const handleChange = (e) => {
     const { value } = e.target;
     setInputValue(value);
   };
+
+useEffect(()=>{
+
+
+    
+},[])
+
 
   return (
     <section className="my-3 ml-auto w-max mr-[100px]">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Pagination from "../pagination/Pagination";
 import Link from "next/link";
 import SearchBar from "../searchBar/SearchBar";
+import { useState } from "react";
 
 export default function Pokemons() {
   //desestructuración de los elementos definidos en el customHook del manejo de la llamada a la api
