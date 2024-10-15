@@ -44,9 +44,9 @@ export default function Pagination({
     <div className="flex items-center gap-3">
       <button
         onClick={handlePrev}
-        className={`page-item ${
+        className={`${
           page === 1 ? "hidden" : ""
-        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 dark:text-white font-medium relative overflow-hidden dark:hover:bg-slate-700`}
+        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
       >
         <IoIosArrowBack />
         Anterior
@@ -57,15 +57,15 @@ export default function Pagination({
         return (
           <div
             key={pageIndex}
-            className={`page-item ${
+            className={`${
               page === pageIndex ? "bg-orange-500 rounded-full" : ""
-            } cursor-pointer w-7 h-7 flex items-center justify-center rounded-full hover:bg-slate-400 transition duration-300 select-none hover:dark:text-slate-800`}
+            } cursor-pointer w-7 h-7 flex items-center justify-center font-medium rounded-full hover:bg-slate-400 transition duration-300 select-none`}
             onClick={() => {
               setPage(pageIndex);
               setOffSet((pageIndex - 1) * limit);
             }}
           >
-            <div className="page-link text-slate-800 font-medium dark:text-white">
+            <div className="page-link text-slate-800 font-mediu">
               {pageIndex}
             </div>
           </div>
@@ -74,9 +74,9 @@ export default function Pagination({
 
       <button
         onClick={handleNext}
-        className={`page-item ${
+        className={`${
           page === totalPages ? "disabled" : ""
-        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 dark:text-white font-medium relative overflow-hidden dark:hover:bg-slate-700`}
+        } flex items-center hover:bg-slate-200 py-1 px-2 rounded transition duration-300 select-none text-slate-800 font-medium relative`}
       >
         Siguiente
         <IoIosArrowForward />
