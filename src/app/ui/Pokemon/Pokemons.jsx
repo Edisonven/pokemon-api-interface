@@ -26,7 +26,7 @@ export default function Pokemons() {
             <div className="flex items-center justify-center flex-wrap gap-5">
               {pokemonFinded.length > 0
                 ? pokemonFinded.map((pokemon) => (
-                    <div
+                  <div
                       className="rounded shadow-md p-3 flex w-[300px] justify-between bg-white"
                       key={pokemon.id}
                     >
@@ -51,11 +51,13 @@ export default function Pokemons() {
                             pokemon.name.slice(1)}
                         </h1>
                         <div className="h-[80%] flex flex-col justify-between">
-                          {pokemon.types.map((type, index) => (
-                            <p className="text-slate-800" key={index}>
-                              {type.type.name}
-                            </p>
-                          ))}
+                          <div>
+                            {pokemon.types.map((type, index) => (
+                              <p className="text-slate-800" key={index}>
+                                {type.type.name}
+                              </p>
+                            ))}
+                          </div>
                           <Link
                             className="px-2 py-1 bg-red-500 rounded shadow text-gray-100 font-medium hover:bg-red-400"
                             href={`/${pokemon.id}`}
