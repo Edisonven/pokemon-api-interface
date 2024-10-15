@@ -17,7 +17,7 @@ const PokemonDetail = ({ params }) => {
       ) : (
         <div>
           {pokemonDetail && pokemonDetail.name && (
-            <div className="border border-gray-300 shadow-lg rounded-2xl px-5 py-1 w-[400px]">
+            <div className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 w-[400px] bg-white">
               <Link href="/" className="">
                 <IoIosArrowRoundBack className="text-slate-800 text-[40px] hover:bg-[#00000013] rounded-lg" />
               </Link>
