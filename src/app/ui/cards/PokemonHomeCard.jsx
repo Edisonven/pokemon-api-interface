@@ -31,7 +31,7 @@ export default function PokemonHomeCard({ pokemon }) {
         <div className="h-[80%] flex flex-col justify-between">
           <div className="flex items-center gap-3 mt-3">
             {pokemon?.types?.map((type, index) => (
-              <div key={index} className="r">
+              <div key={index} className="">
                 <Image
                   style={{
                     filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))",

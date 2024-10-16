@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import typeColors from "@/utils/typeColors";
+import typeLogos from "@/utils/typeLogos";
 
 export default function PokemonDetailCard({ pokemonDetail }) {
   const backgroundColor =
@@ -21,12 +22,17 @@ export default function PokemonDetailCard({ pokemonDetail }) {
       <div className="my-2 flex items-center gap-3">
         <p className="font-semibold text-gray-100">Types:</p>
         {pokemonDetail.types.map((type, index) => (
-          <p
-            className="text-gray-100 font-medium border border-gray-300 pb-1 shadow rounded-3xl px-2 w-max flex"
-            key={index}
-          >
-            {type.type.name}
-          </p>
+          <div className="flex items-center gap-3 border-gray-600 border shadow rounded-3xl pl-2 pr-1 py-1 bg-[#00000077]">
+            <p className="text-gray-100 font-medium w-max flex mb-1" key={index}>
+              {type.type.name}
+            </p>
+            <Image
+              src={typeLogos[type?.type?.name]}
+              alt={`${type?.type?.name} logo`}
+              width={30}
+              height={30}
+            />
+          </div>
         ))}
       </div>
       <div>
