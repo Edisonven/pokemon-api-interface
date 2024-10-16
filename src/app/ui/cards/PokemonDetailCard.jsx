@@ -22,8 +22,11 @@ export default function PokemonDetailCard({ pokemonDetail }) {
       <div className="my-2 flex items-center gap-3">
         <p className="font-semibold text-gray-100">Types:</p>
         {pokemonDetail.types.map((type, index) => (
-          <div className="flex items-center gap-3 border-gray-600 border shadow rounded-3xl pl-2 pr-1 py-1 bg-[#00000077]">
-            <p className="text-gray-100 font-medium w-max flex mb-1" key={index}>
+          <div
+            key={index}
+            className="flex items-center gap-3 border-gray-600 border shadow rounded-3xl pl-2 pr-1 py-1 bg-[#00000077]"
+          >
+            <p className="text-gray-100 font-medium w-max flex mb-1">
               {type.type.name}
             </p>
             <Image
