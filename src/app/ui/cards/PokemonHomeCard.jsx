@@ -5,12 +5,12 @@ import typeLogos from "@/utils/typeLogos";
 
 export default function PokemonHomeCard({ pokemon }) {
   // Color de fondo basado en el primer tipo del array de tipos del pokemon
-  const backgroundColor =
-    typeColors[pokemon?.types[0]?.type?.name] || "bg-white";
+  const backgroundColor = typeColors[pokemon?.types[0]?.type?.name] || "white";
 
   return (
     <div
-      className={`rounded shadow-md p-3 flex sm:w-[300px] justify-between ${backgroundColor}`}
+      style={{ backgroundColor: `${backgroundColor}` }}
+      className="rounded shadow-md p-3 flex sm:w-[300px] justify-between"
       key={pokemon.id}
     >
       <div>

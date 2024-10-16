@@ -10,7 +10,8 @@ export default function PokemonDetailCard({ pokemonDetail }) {
 
   return (
     <div
-      className={`border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[430px] ${backgroundColor}`}
+      style={{ backgroundColor: `${backgroundColor}` }}
+      className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[430px]"
     >
       <Link href="/" className="">
         <IoIosArrowRoundBack className="text-gray-100 text-[40px] hover:bg-[#00000013] rounded-lg" />
