@@ -2,6 +2,7 @@
 import useFetchPokemonDetail from "@/hooks/useFetchPokemonDetail";
 import PokemonDetailCard from "../ui/cards/PokemonDetailCard";
 import Image from "next/image";
+import Overlay from "../ui/overlay/Overlay";
 
 const PokemonDetail = ({ params }) => {
   const { id } = params;
@@ -9,6 +10,7 @@ const PokemonDetail = ({ params }) => {
 
   return (
     <section className="">
+      <Overlay />
       <Image
         alt="image"
         width={1000}
