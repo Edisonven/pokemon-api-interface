@@ -2,7 +2,7 @@ import Pokemons from "./ui/Pokemon/Pokemons";
 
 export default function Home() {
   return (
-    <section>
+    <section className="home">
       <Pokemons />
     </section>
   );
