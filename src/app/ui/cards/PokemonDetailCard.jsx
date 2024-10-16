@@ -18,12 +18,12 @@ export default function PokemonDetailCard({ pokemonDetail }) {
         <IoIosArrowRoundBack className="text-gray-100 text-[40px] hover:bg-[#00000013] rounded-lg" />
       </Link>
       <h1 className="text-gray-100 font-semibold text-2xl mb-5">
-        {pokemonDetail.name.charAt(0).toUpperCase() +
-          pokemonDetail.name.slice(1)}
+        {pokemonDetail?.name.charAt(0).toUpperCase() +
+          pokemonDetail?.name.slice(1)}
       </h1>
       <div className="my-2 flex items-center gap-3">
         <p className="font-semibold text-gray-100">Types:</p>
-        {pokemonDetail.types.map((type, index) => (
+        {pokemonDetail?.types.map((type, index) => (
           <div
             key={index}
             className="flex items-center gap-3 border-gray-600 border shadow rounded-3xl pl-2 pr-1 py-1 bg-[#00000077]"
@@ -44,7 +44,7 @@ export default function PokemonDetailCard({ pokemonDetail }) {
       <div>
         <p className="font-semibold mb-2 text-gray-100">Stats:</p>
         <div className="flex flex-col gap-2">
-          {pokemonDetail.stats.map((stat, index) => (
+          {pokemonDetail?.stats.map((stat, index) => (
             <div
               key={index}
               className="flex items-center justify-between  border-gray-300 border-b-2"

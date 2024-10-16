@@ -11,10 +11,10 @@ export default function PokemonHomeCard({ pokemon }) {
     <div
       style={{ backgroundColor: `${backgroundColor}` }}
       className="rounded shadow-md p-3 flex sm:w-[300px] justify-between"
-      key={pokemon.id}
+      key={pokemon?.id}
     >
       <div>
-        <p className="text-black font-semibold"># {pokemon.id}</p>
+        <p className="text-black font-semibold"># {pokemon?.id}</p>
         <Image
           width={100}
           height={100}
