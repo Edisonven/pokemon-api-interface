@@ -3,6 +3,7 @@ import useFetchPokemonDetail from "@/hooks/useFetchPokemonDetail";
 import PokemonDetailCard from "../ui/cards/PokemonDetailCard";
 import Image from "next/image";
 import Overlay from "../ui/overlay/Overlay";
+import Loader from "../ui/loader/Loader";
 
 const PokemonDetail = ({ params }) => {
   //parámetro de la url almacenado en una constante
@@ -21,7 +22,7 @@ const PokemonDetail = ({ params }) => {
         className="absolute top-0 right-0 left-0 bottom-0 w-full -z-10 h-full object-cover"
       />
       {loading ? (
-        <p>cargando...</p>
+        <Loader />
       ) : (
         <div>
           {pokemonDetail && pokemonDetail.name && (
