@@ -29,7 +29,7 @@ export default function PokemonHomeCard({ pokemon }) {
           {pokemon?.name?.charAt(0).toUpperCase() + pokemon?.name?.slice(1)}
         </h1>
         <div className="h-[80%] flex flex-col justify-between">
-          <div className="flex items-center gap-3 mt-3">
+          <div className="flex items-center gap-3 mt-3 justify-end">
             {pokemon?.types?.map((type, index) => (
               <div key={index} className="">
                 <Image
