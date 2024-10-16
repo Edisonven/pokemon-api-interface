@@ -31,6 +31,7 @@ export default function PokemonDetailCard({ pokemonDetail }) {
               {type.type.name}
             </p>
             <Image
+              priority
               src={typeLogos[type?.type?.name]}
               alt={`${type?.type?.name} logo`}
               width={30}
