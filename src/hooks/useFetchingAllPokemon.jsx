@@ -34,7 +34,7 @@ const useFetchingAllPokemon = (startSearch) => {
     };
 
     handleFetchingAllPokemon();
-  }, [startSearch]);
+  }, [startSearch, setError, setPokemonFinded]);
 
   return {
     loading,

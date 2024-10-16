@@ -5,7 +5,9 @@ import Image from "next/image";
 import Overlay from "../ui/overlay/Overlay";
 
 const PokemonDetail = ({ params }) => {
+  //parámetro de la url almacenado en una constante
   const { id } = params;
+  //desestructuración de valores traídos del customHook
   const { pokemonDetail, loading } = useFetchPokemonDetail(id);
 
   return (

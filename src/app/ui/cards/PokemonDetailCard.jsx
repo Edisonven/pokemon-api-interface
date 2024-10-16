@@ -5,6 +5,7 @@ import typeColors from "@/utils/typeColors";
 import typeLogos from "@/utils/typeLogos";
 
 export default function PokemonDetailCard({ pokemonDetail }) {
+  //constante que asigna a la propiedad de tipos, su valor dinámicamente según el valor de la propiedad encontrada en typeColors
   const backgroundColor =
     typeColors[pokemonDetail?.types[0]?.type?.name] || "bg-white";
 

@@ -9,23 +9,27 @@ export default function SearchBar() {
   const { loading } = useFetchingAllPokemon(startSearch);
   const { setPokemonFinded, setError } = useContext(PokemonContext);
 
+  //función que maneja el evento change del input, captura sus datos y los sete en el estado
   const handleChange = (e) => {
     const { value } = e.target;
     setInputValue(value);
   };
 
+  //función que evalúa si el input tiene datos, para enviarlos a otro estado y manejar la búsqueda
   const handleSerachPokemon = () => {
     if (inputValue) {
       setStartSearch(inputValue);
     }
   };
 
+  //efecto secundario que se ejecuta cuando la entrada del input está vacía, y resetea los estados
   useEffect(() => {
     if (inputValue === "") {
       setStartSearch("");
       setPokemonFinded([]);
       setError("");
     }
+    //Array de dependencias que vuelven a ejecutar el hook
   }, [inputValue, setError, setPokemonFinded]);
 
   return (

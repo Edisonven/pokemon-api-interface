@@ -1,10 +1,11 @@
 "use client";
-
 import { createContext, useState, useContext } from "react";
 
+//Creación de contexto para manejo de estado global
 export const PokemonContext = createContext();
 
 const PokemonProvider = ({ children }) => {
+  //Estados generados en estado global para ser utilizados donde sea requerido
   const [pokemonFinded, setPokemonFinded] = useState([]);
   const [error, setError] = useState("");
   const [limit, setLimit] = useState(20);
@@ -14,6 +15,7 @@ const PokemonProvider = ({ children }) => {
 
   return (
     <PokemonContext.Provider
+      //Valores pasados al provider para ser consumidos
       value={{
         pokemonFinded,
         setPokemonFinded,
