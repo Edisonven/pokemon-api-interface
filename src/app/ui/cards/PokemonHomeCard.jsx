@@ -1,48 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import typeColors from "@/utils/typeColors";
 
 export default function PokemonHomeCard({ pokemon }) {
+  // Color de fondo basado en el primer tipo del Pokémon
+  const backgroundColor =
+    typeColors[pokemon?.types[0]?.type?.name] || "bg-white";
+
   return (
     <div
-      className={`rounded shadow-md p-3 flex sm:w-[300px] bg-white justify-between ${
-        pokemon?.types[0].type.name === "grass"
-          ? "bg-[#3BCB01]"
-          : pokemon?.types[0].type.name === "water"
-          ? "bg-[#638FF0]"
-          : pokemon?.types[0].type.name === "fire"
-          ? "bg-[#EE8031]"
-          : pokemon?.types[0].type.name === "bug"
-          ? "bg-[#9CC31F]"
-          : pokemon?.types[0].type.name === "normal"
-          ? "bg-[#ADAB8D]"
-          : pokemon?.types[0].type.name === "poison"
-          ? "bg-[#AE01CB]"
-          : pokemon?.types[0].type.name === "fairy"
-          ? "bg-[#F9A5D1]"
-          : pokemon?.types[0].type.name === "electric"
-          ? "bg-[#FFD525]"
-          : pokemon?.types[0].type.name === "ground"
-          ? "bg-[#E5BC61]"
-          : pokemon?.types[0].type.name === "fighting"
-          ? "bg-[#C80000]"
-          : pokemon?.types[0].type.name === "psychic"
-          ? "bg-[#FE509B]"
-          : pokemon?.types[0].type.name === "rock"
-          ? "bg-[#C49100]"
-          : pokemon?.types[0].type.name === "ghost"
-          ? "bg-[#663993]"
-          : pokemon?.types[0].type.name === "ice"
-          ? "bg-[#88DBEC]"
-          : pokemon?.types[0].type.name === "dragon"
-          ? "bg-[#6622EE]"
-          : pokemon?.types[0].type.name === "dark"
-          ? "bg-[#494949]"
-          : pokemon?.types[0].type.name === "steel"
-          ? "bg-[#A6A8C6]"
-          : pokemon?.types[0].type.name === "flying"
-          ? "bg-[#A890FE]"
-          : ""
-      }`}
+      className={`rounded shadow-md p-3 flex sm:w-[300px] justify-between ${backgroundColor}`}
       key={pokemon.id}
     >
       <div>

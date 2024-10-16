@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import typeColors from "@/utils/typeColors";
 
 export default function PokemonDetailCard({ pokemonDetail }) {
+  const backgroundColor =
+    typeColors[pokemonDetail?.types[0]?.type?.name] || "bg-white";
+
   return (
-    <div className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[430px] bg-white">
+    <div
+      className={`border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[430px] ${backgroundColor}`}
+    >
       <Link href="/" className="">
         <IoIosArrowRoundBack className="text-slate-800 text-[40px] hover:bg-[#00000013] rounded-lg" />
       </Link>
