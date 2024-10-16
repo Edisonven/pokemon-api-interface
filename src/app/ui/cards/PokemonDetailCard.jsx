@@ -40,7 +40,7 @@ export default function PokemonDetailCard({ pokemonDetail }) {
               <p className="font-medium text-gray-100">
                 {stat?.stat?.name.toUpperCase()}
               </p>
-              <p className="font-bold text-red-700">{stat?.base_stat}</p>
+              <p className="font-bold text-red-500">{stat?.base_stat}</p>
             </div>
           ))}
         </div>
