@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#e7e7e7] flex flex-col items-center">
+      <body className="app bg-[#e7e7e7] flex flex-col items-center">
         <PokemonProvider>
           <Header />
           {children}

@@ -11,7 +11,7 @@ export default function PokemonDetailCard({ pokemonDetail }) {
   return (
     <div
       style={{ backgroundColor: `${backgroundColor}` }}
-      className="border border-gray-100 shadow-lg rounded-2xl px-5 py-1 sm:w-[430px]"
+      className="border border-gray-100 shadow-2xl rounded-2xl px-5 py-1 sm:w-[430px] relative"
     >
       <Link href="/" className="">
         <IoIosArrowRoundBack className="text-gray-100 text-[40px] hover:bg-[#00000013] rounded-lg" />
@@ -31,6 +31,7 @@ export default function PokemonDetailCard({ pokemonDetail }) {
               {type.type.name}
             </p>
             <Image
+              priority
               src={typeLogos[type?.type?.name]}
               alt={`${type?.type?.name} logo`}
               width={30}

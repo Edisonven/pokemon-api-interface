@@ -78,7 +78,7 @@ export default function Pagination({
   };
 
   return (
-    <div className="flex items-center gap-1 sm:gap-3">
+    <div className="flex items-center gap-1 sm:gap-3 bg-[#ffffff5b] rounded shadow md:px-2 py-1">
       <button
         onClick={handleFirstPage}
         className={`${
@@ -103,7 +103,7 @@ export default function Pagination({
           <div
             key={pageIndex}
             className={`${
-              page === pageIndex ? "bg-orange-500 rounded-full" : ""
+              page === pageIndex ? "bg-yellow-400 rounded-full" : ""
             } cursor-pointer w-7 h-7 flex items-center justify-center font-medium rounded-full hover:bg-slate-400 transition duration-300 select-none`}
             onClick={() => {
               setPage(pageIndex);
