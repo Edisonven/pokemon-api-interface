@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
+import { PokemonContext } from "@/context/PokemonContext";
+import { useContext, useEffect, useState } from "react";
 
 //custom hook con la llamada a la api
 const useFetchingPokemonData = () => {
   //estados locales para funcionalidades: datos de pokemones, limite de datos por página, offset(valor que se actualiza según la página actual), cuenta total de pokemones y página
   const [pokemons, setPokemons] = useState([]);
-  const [limit, setLimit] = useState(20);
-  const [offSet, setOffSet] = useState(0);
-  const [totalCount, setTotalCount] = useState(0);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const {
+    limit,
+    setLimit,
+    offSet,
+    setOffSet,
+    totalCount,
+    setTotalCount,
+    page,
+    setPage,
+  } = useContext(PokemonContext);
 
   // hook de efecto secundario que se vuelve a ejecutar cada vez que cambia alguna de suss dependencias
   useEffect(() => {
