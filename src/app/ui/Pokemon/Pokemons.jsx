@@ -5,6 +5,7 @@ import SearchBar from "../searchBar/SearchBar";
 import { useContext } from "react";
 import { PokemonContext } from "@/context/PokemonContext";
 import PokemonHomeCard from "../cards/PokemonHomeCard";
+import Loader from "../loader/Loader";
 
 export default function Pokemons() {
   //desestructuración de los elementos definidos en el customHook del manejo de la llamada a la api
@@ -15,7 +16,7 @@ export default function Pokemons() {
   return (
     <section className="max-w-[1400px]">
       {loading ? (
-        <p>loading...</p>
+        <Loader />
       ) : (
         <div className="flex flex-col items-center">
           <SearchBar />
@@ -39,14 +40,16 @@ export default function Pokemons() {
           error ? "hidden" : pokemonFinded.length > 0 ? "hidden" : ""
         }`}
       >
-        {/*Componente funcional que maneja la paginación, recibe las props necesarias para ejecutar la lógica*/}
-        <Pagination
-          limit={limit}
-          setOffSet={setOffSet}
-          totalCount={totalCount}
-          page={page}
-          setPage={setPage}
-        />
+        <div className={`${loading ? "hidden" : ""}`}>
+          {/*Componente funcional que maneja la paginación, recibe las props necesarias para ejecutar la lógica*/}
+          <Pagination
+            limit={limit}
+            setOffSet={setOffSet}
+            totalCount={totalCount}
+            page={page}
+            setPage={setPage}
+          />
+        </div>
       </div>
     </section>
   );
