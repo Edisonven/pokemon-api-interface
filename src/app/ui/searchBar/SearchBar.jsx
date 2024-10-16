@@ -26,10 +26,10 @@ export default function SearchBar() {
       setPokemonFinded([]);
       setError("");
     }
-  }, [inputValue]);
+  }, [inputValue, setError, setPokemonFinded]);
 
   return (
-    <section className="my-3 md:ml-auto w-max md:mr-[100px]">
+    <section className="my-3 md:ml-auto w-max ">
       <div className="flex items-center gap-3">
         <div className="relative">
           <input
